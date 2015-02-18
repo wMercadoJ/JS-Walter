@@ -1,0 +1,38 @@
+<style>
+#body {
+background-image: url("../images/binary-background.png");
+background-position: center;
+}
+#header {
+    background-image: url("../images/banner-javascript.jpg");
+    color:orangered;
+    text-align:left;
+    padding:5px;
+	height:100px;
+    width:540px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:150px;
+    float:left;
+    padding:5px; 
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}
+#footer {
+    background-color:orangered;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+th#main-title {
+color: chocolate;
+}
+</style>
+
