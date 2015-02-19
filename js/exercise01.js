@@ -1,49 +1,79 @@
-// session-02
+// Exercise 01
 
-var sayHello = function(name){
-   console.log('Hello ' + name + '!!!');
+var parameters = 0
+var maximumNumber = 0 
+var minimumNumber = 9999999999 
+var averageNumber = 0
+var totalSum = 0
+	
+function findMaximumNumber(){
+	parameters = arguments.length;		
+	evaluateMaximumNumber.apply(this, arguments);
+	console.log("Maximum Number : "+maximumNumber) 
+	resetVariables()
 }
 
-// Vars and context
-// var age = '';
+function evaluateMaximumNumber(){	
+	if (parameters >=0){				
+		if(maximumNumber < parseInt(arguments[parameters-1])){					
+			maximumNumber = arguments[parameters-1];				
+		}
+		parameters -=1 ;				
+		evaluateMaximumNumber.apply(this, arguments);
+	}	
+}	
 
-function calculateAge(bornYear) {
-	var age = 2014 - bornYear;
-	return age;
+function findMinimumNumber(){
+	parameters = arguments.length;		
+	evaluateMinimunNumber.apply(this, arguments);
+	console.log("Minimum Number : "+minimumNumber) 
+	resetVariables()
+}
+
+function evaluateMinimunNumber(){	
+	if (parameters >=0){				
+		if(minimumNumber > parseInt(arguments[parameters-1])){					
+			minimumNumber = arguments[parameters-1];				
+		}
+		parameters -=1 ;				
+		evaluateMinimunNumber.apply(this, arguments);
+	}	
+}
+
+function findAverageNumber(){
+	parameters = arguments.length;		
+	evaluateTotalSum.apply(this, arguments);
+	averageNumber = totalSum / arguments.length;
+	console.log("Average of Numbers : "+averageNumber) 
+	resetVariables()
+}
+
+function evaluateTotalSum(){	
+	if (parameters > 0){			
+		totalSum = totalSum + arguments[parameters-1];	
+		parameters -=1 ;				
+		evaluateTotalSum.apply(this, arguments);
+		}			
+}	
+
+function findTotalSum(){
+	parameters = arguments.length;		
+	evaluateTotalSum.apply(this, arguments);
+	console.log("Sum of Numbers : "+totalSum) 
+	resetVariables()
+}
+
+function resetVariables(){
+	parameters = 0
+	maximumNumber = 0 
+	minimumNumber = 9999999999 
+	averageNumber = 0
+	totalSum = 0
 }
 
 var doOperations =  function(){
-	//console.log('MIN value is: ' + getMin(arguments));
-	//console.log('MAX value is: ' + getMax(arguments));
-	//console.log('AVERAGE value is: ' + getAvg(arguments));
-	console.log('TOTAL value is: ' + sum(arguments));
-
+	findMinimumNumber.apply(this, arguments);
+	findMaximumNumber.apply(this, arguments);
+	findAverageNumber.apply(this, arguments);
+	findTotalSum.apply(this, arguments);
 };
-var sum =  function(nums, pos){
-	
-	if (pos == undefined)
-		pos = nums.length - 1
-		
-	if (pos == 0)
-		return nums[0];
-	
-	return nums[pos] + sum(nums, pos - 1);
-};
-var getMin =  function(nums, currMin, pos){
-	if (pos == undefined)
-		pos = nums.length - 1
-		
-	if (currMin == undefined)
-		currMin = nums[pos]
-		
-	if (currMin > nums[pos])
-		currMin = nums[pos]
-	
-	if (pos == 0)
-		return currMin;
-	
-	return getMin(nums, currMin, pos - 1);
-};
-
-var getMax =  function(nums){};
-var getAvg =  function(nums){};

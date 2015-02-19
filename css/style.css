@@ -1,8 +1,8 @@
 <style>
 #body {
-background-image: url("../images/binary-background.png");
-background-position: center;
+background-color: ghostwhite;
 }
+
 #header {
     background-image: url("../images/banner-javascript.jpg");
     color:orangered;
@@ -14,13 +14,13 @@ background-position: center;
 #nav {
     line-height:30px;
     background-color:#eeeeee;
-    height:300px;
+    height:500px;
     width:150px;
     float:left;
     padding:5px; 
 }
 #section {
-    width:350px;
+    width:600px;
     float:left;
     padding:10px; 
 }
@@ -31,8 +31,11 @@ background-position: center;
     text-align:center;
     padding:5px; 
 }
-th#main-title {
-color: chocolate;
+p#code {
+font-family: "Lucida Console", Monaco, monospace;
+color: seagreen;
+font-size: 14px;
+text-align: -webkit-center
 }
 </style>
 
