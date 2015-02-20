@@ -1,76 +1,90 @@
-// Exercise 01
+/** Functions to find the following operations of N arguments: 
+ *  - Maximum
+ *  - Minimum
+ *  - Average
+ *  - Total Sum
+ */
 
-var parameters = 0
-var maximumNumber = 0 
-var minimumNumber = 9999999999 
-var averageNumber = 0
-var totalSum = 0
-	
+var numberArgument = 0;
+var maximumNumber = 0;
+var minimumNumber = 9999999999; 
+var averageNumber = 0;
+var totalSum = 0;
+
+/** Function to find a Maximum number of N arguments */
 function findMaximumNumber(){
-	parameters = arguments.length;		
+	numberArgument = arguments.length;		
 	evaluateMaximumNumber.apply(this, arguments);
-	console.log("Maximum Number : "+maximumNumber) 
-	resetVariables()
+	console.log("Maximum Number : " + maximumNumber);
+	resetVariables();
 }
 
+/** Function to evaluate if next argument is the maximum */
 function evaluateMaximumNumber(){	
-	if (parameters >=0){				
-		if(maximumNumber < parseInt(arguments[parameters-1])){					
-			maximumNumber = arguments[parameters-1];				
+	if (numberArgument >= 0){				
+		if(maximumNumber < parseInt(arguments[numberArgument - 1])){					
+			maximumNumber = arguments[numberArgument - 1];				
 		}
-		parameters -=1 ;				
+		numberArgument -= 1;				
 		evaluateMaximumNumber.apply(this, arguments);
 	}	
 }	
 
+/** Function to find a Minimum number of N arguments */
 function findMinimumNumber(){
-	parameters = arguments.length;		
+	numberArgument = arguments.length;		
 	evaluateMinimunNumber.apply(this, arguments);
-	console.log("Minimum Number : "+minimumNumber) 
-	resetVariables()
+	console.log("Minimum Number : " + minimumNumber);
+	resetVariables();
 }
 
+/** Function to evaluate if next argument is the minimum */
 function evaluateMinimunNumber(){	
-	if (parameters >=0){				
-		if(minimumNumber > parseInt(arguments[parameters-1])){					
-			minimumNumber = arguments[parameters-1];				
+	if (numberArgument >= 0){				
+		if(minimumNumber > parseInt(arguments[numberArgument - 1])){					
+			minimumNumber = arguments[numberArgument - 1];				
 		}
-		parameters -=1 ;				
+		numberArgument -= 1 ;				
 		evaluateMinimunNumber.apply(this, arguments);
 	}	
 }
 
+/** Function to find the Average of N arguments */
 function findAverageNumber(){
-	parameters = arguments.length;		
+	numberArgument = arguments.length;		
 	evaluateTotalSum.apply(this, arguments);
 	averageNumber = totalSum / arguments.length;
-	console.log("Average of Numbers : "+averageNumber) 
-	resetVariables()
+	console.log("Average of Numbers : " + averageNumber);
+	resetVariables();
 }
 
+/** Function to Sum N arguments */
 function evaluateTotalSum(){	
-	if (parameters > 0){			
-		totalSum = totalSum + arguments[parameters-1];	
-		parameters -=1 ;				
+	if (numberArgument > 0){			
+		totalSum = totalSum + arguments[numberArgument - 1];	
+		numberArgument -= 1 ;				
 		evaluateTotalSum.apply(this, arguments);
 		}			
 }	
 
+/** Function to find the Total Sum of N arguments */
 function findTotalSum(){
-	parameters = arguments.length;		
+	numberArgument = arguments.length;		
 	evaluateTotalSum.apply(this, arguments);
-	console.log("Sum of Numbers : "+totalSum) 
-	resetVariables()
+	console.log("Sum of Numbers : " + totalSum);
+	resetVariables();
 }
 
+/** Function to reset the variables */
 function resetVariables(){
-	parameters = 0
-	maximumNumber = 0 
-	minimumNumber = 9999999999 
-	averageNumber = 0
-	totalSum = 0
+	numberArgument = 0;
+	maximumNumber = 0;
+	minimumNumber = 9999999999 ;
+	averageNumber = 0;
+	totalSum = 0;
 }
 
+/** Function to all the operations using N arguments */
 var doOperations =  function(){
 	findMinimumNumber.apply(this, arguments);
 	findMaximumNumber.apply(this, arguments);
